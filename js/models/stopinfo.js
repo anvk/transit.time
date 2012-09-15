@@ -1,20 +1,21 @@
-define(['underscore', 'backbone'], function(_, Backbone) {
-    var FutureStops = Backbone.Model.extend({
+define(["underscore", "backbone"], function(_, Backbone) {
+    var StopInfo = Backbone.Model.extend({
+
+    maxTime: 1440,
+    timeRegex: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/g,
 
     defaults: {
         stopTimes: [],
         currentTime: "0:00",
+        
         futureTimes: [],
-        nTimes: 0
+        nTimes: 0,
+        nextTime: "0:00",
+        timeLeft: 0
     },
 
     initialize: function() {
         _.bindAll(this);
-        
-        var nTimes = this.get("nTimes");
-        if (!nTimes || nTimes < 0) {
-            this.set({nTimes: this.defaults.nTimes});
-        }
         
         this.bind("change:currentTime", this.update);
         // update the values
@@ -25,10 +26,19 @@ define(['underscore', 'backbone'], function(_, Backbone) {
     //          Function which would update model once currentTime changed
     //
     update: function () {
-        var currentTimeI = this.timeToInt(this.get("currentTime")),
-            futureTimes = this.findFutureTimes(currentTimeI, this.get("stopTimes"), this.get("nTimes"));
+        var nTimes = this.get("nTimes"),
+            stopTimes = this.get("stopTimes"),
+            currentTimeI = this.timeToInt(this.get("currentTime"));
+            futureTimes = (nTimes < 1) ? this.findFutureTimes(currentTimeI, stopTimes, 1) : this.findFutureTimes(currentTimeI, stopTimes, nTimes),
+            nextTime = (!futureTimes || futureTimes.length < 1) ? undefined : futureTimes[0],
+            timeLeft = this.timeDiff(currentTimeI, this.timeToInt(nextTime));
+        
+        futureTimes = (nTimes > 0) ? futureTimes : [];
+        
         this.set({
-            futureTimes: futureTimes
+            futureTimes: futureTimes,
+            nextTime: nextTime,
+            timeLeft: timeLeft
         });
     },
     
@@ -67,12 +77,32 @@ define(['underscore', 'backbone'], function(_, Backbone) {
             multiplier = (nTimes - rest.length) / stopTimes.length;
         
         _(multiplier).times(function() {
-            result = _.union(result, stopTimes);
+            result = result.concat(stopTimes);
         });
         
-        return _.first(_.union(rest, result), nTimes);
+        return _.first(rest.concat(result), nTimes);
+    },
+    
+    // summary:
+    //      Function to find time difference between 2 times expressed in minutes
+    // time1:
+    //      Time in minutes before time2
+    // time2:
+    //      Time in minutes after time1
+    //
+    timeDiff: function (time1, time2) {
+        var maxTime = this.maxTime;
+        if (!time1 || time1 >= maxTime || !time2 || time2 >= maxTime) {
+            return;
+        }
+        
+        if (time1 > time2) {
+            return this.maxTime - time1 + time2;  
+        } else {
+            return time2 - time1;
+        }
     }
 
     });
-    return FutureStops;
+    return StopInfo;
 });

@@ -1,30 +1,12 @@
 requirejs.config({
-    shim: {
-        QUnit: {
-            deps: ['jquery'],
-            exports: 'QUnit'
-        },
-        jqUnit: {
-            deps: ['QUnit'],
-            exports: 'jqUnit'
-        }
-    },
-    
-    // My base URL with the models
     baseUrl: "../../",
-    // Libraries I'm going to include
     paths: {
-        QUnit: "tests/lib/qunit/js/qunit",
-        jqUnit: "tests/lib/jqUnit/js/jqUnit",
-        jquery: "js/libs/jquery/jquery-min",
-        underscore: "js/libs/underscore/underscore-min",
-        backbone: "js/libs/backbone/backbone-optamd3-min",
         testutils: "tests/js/test-utils",
         stopinfo: "js/models/stopinfo"
     }
 });
 
-requirejs(["jquery", "underscore", "backbone", "jqUnit", "testutils", "stopinfo"], function($, _, Backbone, jqUnit, testutils, StopInfo) {
+requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
     var futurestopsTests = new jqUnit.TestCase("futurestops module tests"),
         createModule = function (defaults) {
             return new StopInfo(defaults);

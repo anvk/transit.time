@@ -1,4 +1,28 @@
-define(['jquery'], function($) {
+requirejs.config({
+    shim: {
+        QUnit: {
+            deps: ["jquery"],
+            exports: "QUnit"
+        },
+        jqUnit: {
+            deps: ["QUnit"],
+            exports: "jqUnit"
+        }
+    },
+    
+    // My base URL with the models
+    baseUrl: "../../",
+    // Libraries I'm going to include
+    paths: {
+        QUnit: "tests/lib/qunit/js/qunit",
+        jqUnit: "tests/lib/jqUnit/js/jqUnit",
+        jquery: "js/libs/jquery/jquery-min",
+        underscore: "js/libs/underscore/underscore-min",
+        backbone: "js/libs/backbone/backbone-optamd3-min"
+    }
+});
+
+define(["jquery", "underscore", "backbone", "jqUnit", "jquery"], function($, _, Backbone, jqUnit, $) {
     // Using ECMAScript 5 strict mode during development. By default r.js will ignore that.
     //"use strict";
     

@@ -68,5 +68,11 @@ define(["jquery", "underscore", "backbone", "jqUnit", "jquery"], function($, _, 
         start();
     };
     
+    utils.runTestScenarios = function (options) {
+        $.each(options.testScenarios, function(message, func) {
+            options.testCase.asyncTest(message, func);
+        });
+    };    
+    
     return utils;
 });

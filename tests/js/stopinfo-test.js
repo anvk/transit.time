@@ -178,7 +178,8 @@ requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
             }
         };
     
-    $.each(testScenarios, function(message, func) {
-        futurestopsTests.asyncTest(message, func);
+    testutils.runTestScenarios({
+        testScenarios: testScenarios,
+        testCase: futurestopsTests
     });
 });

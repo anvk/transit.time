@@ -2,14 +2,14 @@ requirejs.config({
     baseUrl: "../../",
     paths: {
         testutils: "tests/js/test-utils",
-        stopinfo: "js/models/stopinfo"
+        stop: "js/models/stop"
     }
 });
 
-requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
+requirejs(["testutils", "stop"], function(testutils, Stop) {
     var futurestopsTests = new jqUnit.TestCase("futurestops module tests"),
         createModule = function (defaults) {
-            return new StopInfo(defaults);
+            return new Stop(defaults);
         },
         testScenarios = {
             "findFutureTimes function testing": function () {
@@ -72,7 +72,7 @@ requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
                     ];
                 testutils.testModuleFunction(createModule, messageFunc, tests, "timeDiff");
             },
-            "stopinfo test 1": function() {
+            "Stop test 1": function() {
                 testutils.testModuleSet(createModule, {
                     defaults: {},
                     attributes: {
@@ -83,7 +83,7 @@ requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
                     }
                 });
             },
-            "stopinfo test 2": function() {
+            "Stop test 2": function() {
                 testutils.testModuleSet(createModule, {
                     defaults: {
                         currentTime: "1:10",
@@ -97,7 +97,7 @@ requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
                     }
                 });
             },
-            "stopinfo test 3": function() {
+            "Stop test 3": function() {
                 testutils.testModuleSet(createModule, {
                     defaults: {
                         currentTime: "1:10",
@@ -112,7 +112,7 @@ requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
                     }
                 });
             },
-            "stopinfo test 4": function() {
+            "Stop test 4": function() {
                 testutils.testModuleSet(createModule, {
                     defaults: {
                         currentTime: "1:16",
@@ -127,7 +127,7 @@ requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
                     }
                 });
             },
-            "stopinfo test 5": function() {
+            "Stop test 5": function() {
                 testutils.testModuleSet(createModule, {
                     defaults: {
                         currentTime: "1:16",
@@ -151,7 +151,7 @@ requirejs(["testutils", "stopinfo"], function(testutils, StopInfo) {
                     }
                 });
             },
-            "stopinfo test 6": function() {
+            "Stop test 6": function() {
                 testutils.testModuleSet(createModule, {
                     defaults: {
                         currentTime: "1:16",

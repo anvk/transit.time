@@ -18,7 +18,7 @@ requirejs.config({
         jqUnit: "tests/lib/jqUnit/js/jqUnit",
         jquery: "js/libs/jquery/jquery-min",
         underscore: "js/libs/underscore/underscore-min",
-        backbone: "js/libs/backbone/backbone-optamd3-min"
+        backbone: "js/libs/backbone/backbone-min"
     }
 });
 

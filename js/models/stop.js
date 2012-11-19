@@ -1,5 +1,5 @@
 define(["underscore", "backbone"], function(_, Backbone) {
-    var StopInfo = Backbone.Model.extend({
+    var StopModel = Backbone.Model.extend({
 
     maxTime: 1440,
     timeRegex: /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/g,
@@ -7,11 +7,15 @@ define(["underscore", "backbone"], function(_, Backbone) {
     defaults: {
         stopTimes: [],
         currentTime: "0:00",
-        
+        currentDay: "Monday",
         futureTimes: [],
         nTimes: 0,
         nextTime: "0:00",
-        timeLeft: 0
+        timeLeft: 0,
+        name: "",
+        routeName: "",
+        routeType: "",
+        times: {}
     },
 
     initialize: function() {
@@ -104,5 +108,5 @@ define(["underscore", "backbone"], function(_, Backbone) {
     }
 
     });
-    return StopInfo;
+    return StopModel;
 });

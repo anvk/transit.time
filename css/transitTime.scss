@@ -1,0 +1,45 @@
+$topHeight: 70px;
+
+@mixin fullscreen { margin: 0; width: 100%; min-height: 100%; }
+
+body {
+	@include fullscreen;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.4em;
+}
+
+html, .appView { @include fullscreen; }
+
+.appView {
+    .fadeout {
+        z-index: 99;
+        position: fixed;
+        height: $topHeight;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        background: -moz-linear-gradient(center top , #FFFFFF, rgba(255, 255, 255, 0)) repeat scroll 0 0 transparent;
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)), to(rgba(255, 255, 255, 0)));
+    }
+    .topPanel {
+        position: fixed;
+        z-index: 100;
+        margin-top: 8px;
+        width: 100%;
+        height: $topHeight;
+        .navbar {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .body {
+        padding-top: $topHeight;
+        .stopView {
+            width: 90%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+}

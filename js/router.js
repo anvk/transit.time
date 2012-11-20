@@ -1,10 +1,11 @@
 define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'views/stops',
-  'models/data'
-], function($, _, Backbone, StopsView, UserData){
+    "jquery",
+    "underscore",
+    "backbone",
+    "views/stops",
+    "views/topPanel",
+    "models/data"
+], function($, _, Backbone, StopsView, TopPanel, UserData) {
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
@@ -37,6 +38,7 @@ define([
     });
     app_router.on('route:index', function (actions) {
         var userData = new UserData();
+        var topPanel = new TopPanel({el: ".topPanel"});
         var stopsView = new StopsView({
             el: ".body",
             collection: userData.get("currentList")

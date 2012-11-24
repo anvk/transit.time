@@ -13,16 +13,16 @@ define([
                         "direction": "South",
                         "type": "bus",
                         "stops": {
-                            "main street&gerrard": {
+                            "Main Street & Gerrard": {
                                 "mon-fri": ["10:00", "11:10", "12:30"],
                                 "sat": ["11:30", "13:00"],
                                 "sun": ["11:45", "13:35"]
                             },
-                            "main street": {
+                            "Main Street": {
                                 "mon-fri": ["10:00", "11:10", "12:30"],
                                 "sat-sun": ["11:30", "13:00"]
                             },
-                            "queen east": {
+                            "Queen East": {
                                 "mon-fri": ["9:00", "9:30", "10:00", "11:30"]
                             }
                         }
@@ -49,12 +49,12 @@ define([
                         "direction": "South",
                         "type": "bus",
                         "stops": {
-                            "main street&gerrard": {
+                            "Main Street & Gerrard": {
                                 "mon-fri": ["10:00", "11:10", "12:30"],
                                 "sat": ["11:30", "13:00"],
                                 "sun": ["11:45", "13:35"]
                             },
-                            "main street": {
+                            "Main Street": {
                                 "mon-fri": ["10:00", "11:10", "12:30"],
                                 "sat-sun": ["11:30", "13:00"]
                             }
@@ -65,10 +65,8 @@ define([
                         "direction": "East",
                         "type": "bus",
                         "stops": {
-                            "main street&gerrard": {
-                                "mon-fri": ["9:00", "9:10", "9:20"],
-                                "sat": ["10:30", "11:30"],
-                                "sun": ["12:45", "13:35"]
+                            "Queen East": {
+                                "mon-fri": ["9:00", "9:30", "10:00", "11:30"]
                             }
                         }
                     }

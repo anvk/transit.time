@@ -182,4 +182,9 @@ requirejs(["testutils", "stop"], function(testutils, Stop) {
         testScenarios: testScenarios,
         testCase: futurestopsTests
     });
+    
+    futurestopsTests.test("hola", function () {
+        jqUnit.assertEquals("hola", 1, 1);
+    });
+    
 });

@@ -36,3 +36,18 @@ html, .appView {
     width: 90%;
     margin-right: auto;
     margin-left: auto; }
+    .appView .body .stopView .namePlaceholder {
+      display: inline-block; }
+    .appView .body .stopView .stopNextTimePlaceholder {
+      display: block;
+      float: right; }
+      .appView .body .stopView .stopNextTimePlaceholder .stopNextTime {
+        font-size: 21px;
+        line-height: 1em; }
+        .appView .body .stopView .stopNextTimePlaceholder .stopNextTime .nextTime, .appView .body .stopView .stopNextTimePlaceholder .stopNextTime .nextNextTime {
+          display: inline-block;
+          font-weight: 400; }
+        .appView .body .stopView .stopNextTimePlaceholder .stopNextTime .nextTime {
+          font-size: 42px;
+          line-height: 1em;
+          color: #468847; }

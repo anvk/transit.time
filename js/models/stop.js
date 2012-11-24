@@ -1,4 +1,7 @@
-define(["underscore", "backbone"], function(_, Backbone) {
+define([
+    "underscore",
+    "backbone"
+], function(_, Backbone) {
     var StopModel = Backbone.Model.extend({
 
     maxTime: 1440,
@@ -9,10 +12,13 @@ define(["underscore", "backbone"], function(_, Backbone) {
         currentTime: "0:00",
         currentDay: "Monday",
         futureTimes: [],
-        nTimes: 0,
+        nTimes: 2,
         nextTime: "0:00",
+        nextNextTime: "0:00",
+        nextTimeI: 0,
+        nextNextTimeI: 0,
         timeLeft: 0,
-        name: "",
+        stopName: "",
         routeName: "",
         routeType: "",
         times: {}

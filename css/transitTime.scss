@@ -40,6 +40,26 @@ html, .appView { @include fullscreen; }
             width: 90%;
             margin-right: auto;
             margin-left: auto;
+            .namePlaceholder {
+                display: inline-block;
+            }
+            .stopNextTimePlaceholder {
+                display: block;
+                float: right;
+                .stopNextTime {
+                    font-size: 21px;
+                    line-height: 1em;
+                    .nextTime, .nextNextTime {
+                        display: inline-block;
+                        font-weight: 400;
+                    }
+                    .nextTime {
+                        font-size: 42px;
+                        line-height: 1em;
+                        color: #468847;
+                    }
+                }
+            }
         }
     }
 }
